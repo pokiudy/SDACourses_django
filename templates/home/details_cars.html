@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% block title %} Cars {% endblock %}
+{% block content %}
+    <p>Those cars are new:</p>
+{%  for car in all_cars %}
+    {% if car.is_new is True %}
+        <p>car brand:{{ car.car_brand }}</p>
+        <p>car model:{{ car.car_model }}</p>
+        <p>numb of km:{{ car.number_of_km }}</p>
+        <p>horse power:{{ car.horse_power }}</p>
+    {% endif %}
+    {% if car.horse_power > 200 %}
+        <p>Those cars are super fast cars:</p>
+         <p>car brand:{{ car.car_brand }}</p>
+        <p>car model:{{ car.car_model }}</p>
+        <p>horse power:{{ car.horse_power }}</p>
+        <p>numb of km:{{ car.number_of_km }}</p>
+    {% endif %}
+    <br>
+{% endfor %}
+<a href="{% url 'details' %}" class="btn btn-primary">Go to list of students :)</a>
+{% endblock %}
+
